@@ -1,0 +1,61 @@
+import React, { useEffect } from 'react';
+import ButtonLink from './ButtonLink';
+import SectionTitle from './SectionTitle';
+import useGetProducts from '../hooks/useGetProducts';
+import Product from './Product';
+
+// react-carousel
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+
+const TopProducts = () => {
+    const responsive = {
+        superLargeDesktop: {
+            breakpoint: { max: 4000, min: 3000 },
+            items: 5
+        },
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1
+        }
+    };
+
+    const { maleProducts } = useGetProducts();
+
+    return (
+        <div className='container mx-auto px-8'>
+            <div className="flex items-center justify-between">
+                <SectionTitle text={"Top Products"} />
+                <ButtonLink path={"/about"} text={"See more"} isMain={true} />
+            </div>
+            {maleProducts.length > 0 ? (
+                <Carousel responsive={responsive}>
+                    {maleProducts.map(product => (
+                        <Product
+                            key={product.productId}
+                            brandName={product.brandName}
+                            displayName={product.displayName}
+                            heroImage={product.heroImage}
+                            altImg={product.altImage}
+                            price={product.price}
+                            productId={product.productId}
+                            quickLookDescription={product.quickLookDescription}
+                        />
+                    ))}
+                </Carousel>
+            ) : (
+                <p>No products available</p>
+            )}
+        </div>
+    );
+};
+
+export default TopProducts;
