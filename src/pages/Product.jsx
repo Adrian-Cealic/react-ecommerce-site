@@ -1,12 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useGetProducts from '../hooks/useGetProducts';
+import {  useLocation } from 'react-router-dom'
 
 // react-carousel
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import SectionTitle from '../components/SectionTitle';
+import Benefiets from '../components/Benefiets';
 
 const Product = () => {
+
+    //scroll to top when url changes
+    const location = useLocation()
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    }, [location.pathname]);
 
     const responsive = {
         superLargeDesktop: {
@@ -87,20 +96,22 @@ const Product = () => {
                     </div>
                     {/* for you */}
                     {/* depending on fragranceFamily */}
-                    <h1 className='font-krona font-bold text-xl'>For you:</h1>
+                    <SectionTitle text={"For you:"}/>
                     <div className="mb-20">
                         <Carousel responsive={responsive}>
                             {recommendedProducts.map((recProduct) => (
-                                <Link to={`/product/${recProduct.productId}`} className='group relative'>
+                                <Link to={`/product/${recProduct.productId}`} className='group relative' key={recProduct.productId}>
                                     <img className='w-48 mx-auto mb-4' src={recProduct.heroImage} alt="" />
                                     <div className="font-bold text-center mb-4">
                                         <p className='text-accent font-krona text-sm'>{recProduct.brandName}</p>
                                         <p>{recProduct.displayName}</p>
                                         <p className='transition-all duration-300 transform translate-y-16 opacity-0 group-hover:-translate-y-4 group-hover:opacity-100 absolute -bottom-16 bg-white p-8 w-full left-0'>{recProduct.quickLookDescription}</p>
+                                        <span>{recProduct.price}</span>
                                     </div>
                                 </Link>
                             ))}
                         </Carousel>
+                        <Benefiets/>
                     </div>
                 </>
             ) : (

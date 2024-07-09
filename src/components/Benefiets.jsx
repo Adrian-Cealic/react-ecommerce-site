@@ -5,7 +5,7 @@ const Benefiets = () => {
         {
             title: "Delivery",
             text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, explicabo?',
-                
+
         },
         {
             title: "Products",
