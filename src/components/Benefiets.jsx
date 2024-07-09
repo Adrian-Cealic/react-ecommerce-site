@@ -17,7 +17,7 @@ const Benefiets = () => {
         }
     ]
     return (
-        <div className='container mx-auto flex mb-10'>
+        <div className='container mx-auto flex mb-10 flex-col lg:flex-row'>
             {
                 benefiets.map((item) => (
                     <BenefietItem key={item.title} item={item} />

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useGetProducts from '../hooks/useGetProducts';
-import {  useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 // react-carousel
 import Carousel from 'react-multi-carousel';
@@ -58,18 +58,15 @@ const Product = () => {
         <div className='container p-8'>
             {product ? (
                 <>
-                    <div className='h-screen'>
-
-
+                    <div className='h-auto mb-20'>
                         <div className="mb-10">
                             <h1 className='font-krona font-bold text-sm'>{product.brandName} {product.displayName}</h1>
                             <span className='lowercase text-dark-grey font-krona'>{product.fragranceFamily}</span>
                         </div>
 
-
-                        <div className="flex">
-                            <div className="flex-1 flex justify-center items-center">
-                                <img className='w-96' src={product.heroImage} alt="" />
+                        <div className="flex flex-col lg:flex-row">
+                            <div className="flex-1 flex justify-center items-center mb-10 lg:mb-0">
+                                <img className='w-full lg:w-96' src={product.heroImage} alt="" />
                             </div>
                             <div className="flex-1">
                                 <p className='text-accent font-krona text-sm'>{product.scentType}</p>
@@ -81,7 +78,6 @@ const Product = () => {
                                     <button className='lowercase inline-block rounded-full font-bold font-krona text-black bg-accent px-8 py-4 text-xs'>
                                         add to basket
                                     </button>
-
                                 </div>
 
                                 <span className='font-bold'>Description:</span>
@@ -92,8 +88,8 @@ const Product = () => {
                                 <p>{product.ingredientDesc}</p>
                             </div>
                         </div>
-
                     </div>
+
                     {/* for you */}
                     {/* depending on fragranceFamily */}
                     <SectionTitle text={"For you:"}/>

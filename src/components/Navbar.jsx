@@ -1,27 +1,35 @@
 import BrandLink from './BrandLink'
-import { NavLink } from 'react-router-dom'
+import { IoIosMenu } from "react-icons/io";
 
-
+import ResponsiveMenu from './ResponsiveMenu';
+import { RxCross1 } from "react-icons/rx";
+import { useState } from 'react';
+import NavLinks from './NavLinks';
 
 const navbar = () => {
 
-  const links =
-    [
-      { label: 'Home', path: '/' },
-      { label: 'Search', path: '/search' },
-      { label: 'About', path: '/about' }
-    ]
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  }
 
   return (
     <nav className='flex justify-between py-3 font-krona'>
       <BrandLink />
 
-      <div className="flex gap-8 text-xs md:text-sm items-end lowercase">
-
-        {links.map((link, idx) => (
-          <NavLink key={`${link}-${idx}`} to={link.path} className={({ isActive }) => [isActive ? "text-accent" : "text-black"]}>{link.label}</NavLink>
-        ))}
-
+      <div className="flex gap-8 text-xs md:text-sm lowercase items-center">
+        {/* responsive menu */}
+        {
+          showMenu ? (
+            <RxCross1 className='text-3xl md:hidden cursor-pointer transition-all duration-200 ease-in' onClick={() => toggleMenu()} />
+          ) : (
+            <IoIosMenu className='text-3xl md:hidden cursor-pointer transition-all duration-200 ease-in' onClick={() => toggleMenu()} />
+          )
+        }
+        <div className="hidden md:flex gap-8">
+          <NavLinks isMobile={false} />
+        </div>
         <div className="flex gap-8">
           {/* icons */}
 
@@ -37,6 +45,7 @@ const navbar = () => {
         </div>
 
       </div>
+      <ResponsiveMenu showMenu={showMenu} />
     </nav >
   )
 }

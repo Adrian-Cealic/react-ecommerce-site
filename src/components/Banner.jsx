@@ -4,7 +4,7 @@ import ButtonLink from './ButtonLink'
 
 const Banner = () => {
     return (
-        <div className='container flex items-center mx-auto mt-20'>
+        <div className='container flex flex-col lg:flex-row items-center mx-auto mt-20'>
             <div className="font-krona mb-4 flex flex-col gap-8 px-8">
                 <h1 className='text-lg md:text-3xl'>
                     The react project with API using ReactJS, Axios and Tailwind Css
