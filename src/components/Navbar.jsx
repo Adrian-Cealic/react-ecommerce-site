@@ -18,7 +18,7 @@ const navbar = () => {
     <nav className='flex justify-between py-3 font-krona'>
       <BrandLink />
 
-      <div className="flex gap-8 text-xs md:text-sm lowercase items-center">
+      <div className="flex gap-4 md:gap-8 text-xs md:text-sm lowercase items-center">
         {/* responsive menu */}
         {
           showMenu ? (

@@ -7,7 +7,7 @@ const Product = ({ brandName, displayName, heroImage, quickLookDescription, prod
             className="group relative flex flex-col items-center mt-4 mb-4 px-4 py-4 transition delay-50 duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
             to={`/product/${productId}`}
         >
-            <img className='w-48 mx-auto mb-4' src={heroImage} alt="" />
+            <img className='w-32 md:w-48 mx-auto mb-4' src={heroImage} alt="" />
             <div className="font-bold text-center">
                 <p className='text-accent font-krona text-sm'>{brandName}</p>
                 <p>{displayName}</p>

@@ -12,12 +12,15 @@ export default {
       },
       colors: {
         primary: '#0C080B',
-        secondary: '#1E3329',
-        accent: '#F8D442',
+        accent: '#ffae42',
         pink: "#fed2d1",
         'dark-grey': '#B8B8B8',
         'light-grey': '#ECECEC',
         light: '#FAFAFA',
+        green: '#1E3329',
+      },
+      container: {
+        padding: '1rem',
       }
     },
   },

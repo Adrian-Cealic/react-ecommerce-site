@@ -2,7 +2,7 @@ import React from 'react'
 
 const BenefietItem = ({ item }) => {
     return (
-        <div className="flex flex-1 mt-10 mb-10 mx-8">
+        <div className="flex flex-1 mt-10 mx-8">
         <div className="relative mr-4">
             <div className="absolute bg-accent h-10 rounded-full top-0 -z-10 w-10"></div>
 

@@ -8,6 +8,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import SectionTitle from '../components/SectionTitle';
 import Benefiets from '../components/Benefiets';
+import CartButton from '../components/CartButton';
 
 const Product = () => {
 
@@ -66,18 +67,16 @@ const Product = () => {
 
                         <div className="flex flex-col lg:flex-row">
                             <div className="flex-1 flex justify-center items-center mb-10 lg:mb-0">
-                                <img className='w-full lg:w-96' src={product.heroImage} alt="" />
+                                <img className='w-80 md:w-90 lg:w-96' src={product.heroImage} alt="" />
                             </div>
                             <div className="flex-1">
                                 <p className='text-accent font-krona text-sm'>{product.scentType}</p>
                                 <h1 className='font-krona font-bold text-base'>{product.brandName} {product.displayName}</h1>
 
-                                <div className="flex my-10 justify-between">
+                                <div className="flex flex-col sm:flex-row my-10 justify-between">
                                     <p className='font-krona font-bold text-xl'>{product.price}</p>
                                     <div>counter</div>
-                                    <button className='lowercase inline-block rounded-full font-bold font-krona text-black bg-accent px-8 py-4 text-xs'>
-                                        add to basket
-                                    </button>
+                                    <CartButton content={"add to basket"} />
                                 </div>
 
                                 <span className='font-bold'>Description:</span>
@@ -92,7 +91,7 @@ const Product = () => {
 
                     {/* for you */}
                     {/* depending on fragranceFamily */}
-                    <SectionTitle text={"For you:"}/>
+                    <SectionTitle text={"For you:"} />
                     <div className="mb-20">
                         <Carousel responsive={responsive}>
                             {recommendedProducts.map((recProduct) => (
@@ -107,7 +106,7 @@ const Product = () => {
                                 </Link>
                             ))}
                         </Carousel>
-                        <Benefiets/>
+                        <Benefiets />
                     </div>
                 </>
             ) : (
