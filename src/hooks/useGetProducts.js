@@ -5,7 +5,7 @@ const useGetProducts = () => {
     const [maleProducts, setMaleProducts] = useState([]);
 
 
-    const BASE_URL = 'http://localhost:3000/products';
+    const BASE_URL = 'https://my-fragrance-api-v2.onrender.com/products';
 
     useEffect(() => {
         const fetchData = async () => {
