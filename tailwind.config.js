@@ -19,9 +19,6 @@ export default {
         light: '#FAFAFA',
         green: '#1E3329',
       },
-      container: {
-        padding: '1rem',
-      }
     },
   },
   plugins: [],
