@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Product = ({ brandName, displayName, heroImage, quickLookDescription, productId, price }) => {
     return (
-        <Link 
+        <Link
             className="group relative flex flex-col items-center mt-4 mb-4 px-4 py-4 transition delay-50 duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
             to={`/product/${productId}`}
         >

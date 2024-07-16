@@ -72,6 +72,7 @@ const Product = () => {
                             <div className="flex-1">
                                 <p className='text-accent font-krona text-sm'>{product.scentType}</p>
                                 <h1 className='font-krona font-bold text-base'>{product.brandName} {product.displayName}</h1>
+                                <p className='font-krona text-sm'>{product.gender}</p>
 
                                 <div className="flex flex-col sm:flex-row my-10 justify-between">
                                     <p className='font-krona font-bold text-xl'>{product.price}</p>
