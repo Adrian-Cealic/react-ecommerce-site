@@ -7,6 +7,7 @@ import Product from './Product';
 // react-carousel
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import Loader from './Loader';
 
 const TopProducts = () => {
     const responsive = {
@@ -31,7 +32,7 @@ const TopProducts = () => {
     const { maleProducts } = useGetProducts();
 
     return (
-        <div className='container mx-auto px-8'>
+        <div className='container mx-auto px-8 '>
             <div className="flex items-center justify-between">
                 <SectionTitle text={"Top Products"} />
                 <ButtonLink path={"/about"} text={"See more"} isMain={true} />
@@ -52,7 +53,7 @@ const TopProducts = () => {
                     ))}
                 </Carousel>
             ) : (
-                <p>No products available</p>
+                <Loader size={15}/>
             )}
         </div>
     );

@@ -30,7 +30,7 @@ const navbar = () => {
         <div className="hidden md:flex gap-8">
           <NavLinks isMobile={false} />
         </div>
-        <div className="flex gap-8">
+        <div className="flex gap-4">
           {/* icons */}
 
           {/* liked */}

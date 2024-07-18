@@ -9,6 +9,7 @@ import 'react-multi-carousel/lib/styles.css';
 import SectionTitle from '../components/SectionTitle';
 import Benefiets from '../components/Benefiets';
 import CartButton from '../components/CartButton';
+import Loader from '../components/Loader';
 
 const Product = () => {
 
@@ -92,27 +93,40 @@ const Product = () => {
 
                     {/* for you */}
                     {/* depending on fragranceFamily */}
-                    <SectionTitle text={"For you:"} />
-                    <div className="mb-20">
-                        <Carousel responsive={responsive}>
-                            {recommendedProducts.map((recProduct) => (
-                                <Link to={`/product/${recProduct.productId}`} className='group relative' key={recProduct.productId}>
-                                    <img className='w-48 mx-auto mb-4' src={recProduct.heroImage} alt="" />
-                                    <div className="font-bold text-center mb-4">
-                                        <p className='text-accent font-krona text-sm'>{recProduct.brandName}</p>
-                                        <p>{recProduct.displayName}</p>
-                                        <p className='transition-all duration-300 transform translate-y-16 opacity-0 group-hover:-translate-y-4 group-hover:opacity-100 absolute -bottom-16 bg-white p-8 w-full left-0'>{recProduct.quickLookDescription}</p>
-                                        <span>{recProduct.price}</span>
-                                    </div>
-                                </Link>
-                            ))}
-                        </Carousel>
-                        <Benefiets />
-                    </div>
+
                 </>
             ) : (
-                <div>Loading...</div>
+                <Loader size={20}/>
             )}
+
+            <SectionTitle text={"For you:"} />
+            {
+                recommendedProducts.length > 0 ? (
+                    <>
+                        <div className="mb-20">
+                            <Carousel responsive={responsive}>
+                                {recommendedProducts.map((recProduct) => (
+
+                                    <Link to={`/product/${recProduct.productId}`} className='group relative' key={recProduct.productId}>
+                                        <img className='w-48 mx-auto mb-4' src={recProduct.heroImage} alt="" />
+                                        <div className="font-bold text-center mb-4">
+                                            <p className='text-accent font-krona text-sm'>{recProduct.brandName}</p>
+                                            <p>{recProduct.displayName}</p>
+                                            <p className='transition-all duration-300 transform translate-y-16 opacity-0 group-hover:-translate-y-4 group-hover:opacity-100 absolute -bottom-16 bg-white p-8 w-full left-0'>{recProduct.quickLookDescription}</p>
+                                            <span>{recProduct.price}</span>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </Carousel>
+
+                        </div>
+                    </>
+                ) : (
+                    <p>No products available</p>
+                )
+            }
+
+            <Benefiets />
         </div>
     );
 };
