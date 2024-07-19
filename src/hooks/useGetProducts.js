@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 const useGetProducts = () => {
-    const [maleProducts, setMaleProducts] = useState([]);
+    const [products, setProducts] = useState([]);
 
 
     const BASE_URL = 'https://my-fragrance-api-v2.onrender.com/products';
@@ -11,7 +11,7 @@ const useGetProducts = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(BASE_URL);
-                setMaleProducts(response.data);
+                setProducts(response.data);
             } catch (error) {
                 console.error(error);
             }
@@ -20,21 +20,8 @@ const useGetProducts = () => {
         fetchData();
     }, []);
 
-    //SingleProduct nu lucreaza
 
-    // const getSingleProduct = async (productId) => {
-    //     try {
-    //         const response = await axios.get(`${BASE_URL}`, {
-    //             params: { productId }
-    //         });
-    //         setSingleProduct(response.data); // Update singleProduct with fetched data
-    //         console.log(singleProduct);
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // };
-
-    return { maleProducts };
+    return { products };
 };
 
 export default useGetProducts;

@@ -29,7 +29,7 @@ const TopProducts = () => {
         }
     };
 
-    const { maleProducts } = useGetProducts();
+    const { products } = useGetProducts();
 
     return (
         <div className='container mx-auto px-8 '>
@@ -37,9 +37,9 @@ const TopProducts = () => {
                 <SectionTitle text={"Top Products"} />
                 <ButtonLink path={"/about"} text={"See more"} isMain={true} />
             </div>
-            {maleProducts.length > 0 ? (
+            {products.length > 0 ? (
                 <Carousel responsive={responsive}>
-                    {maleProducts.map(product => (
+                    {products.map(product => (
                         <Product
                             key={product.productId}
                             brandName={product.brandName}

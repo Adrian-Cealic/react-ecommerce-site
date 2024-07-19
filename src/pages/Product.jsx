@@ -39,21 +39,21 @@ const Product = () => {
     };
 
     const { productId } = useParams();
-    const { maleProducts } = useGetProducts();
+    const { products } = useGetProducts();
 
     const [recommendedProducts, setRecommendedProducts] = useState([]);
 
 
-    const product = maleProducts.find(product => product.productId === productId);
+    const product = products.find(product => product.productId === productId);
 
     useEffect(() => {
         if (product) {
-            const recommended = maleProducts.filter(
+            const recommended = products.filter(
                 p => p.fragranceFamily === product.fragranceFamily && p.productId !== product.productId
             );
             setRecommendedProducts(recommended);
         }
-    }, [product, maleProducts]);
+    }, [product, products]);
 
 
     return (
