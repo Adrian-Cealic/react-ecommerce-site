@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { CATEGORIES } from '../constants/categories.js'
-const CategoriesBar = ({ setFilter, products }) => {
+const CategoriesBar = ({ setFilter }) => {
 
     const [activeCategory, setActiveCategory] = useState(null);
 
@@ -28,13 +28,7 @@ const CategoriesBar = ({ setFilter, products }) => {
                         {category.type.map(type => (
                             <li onClick={() => handleFilter('type', type)} className={`cursor-pointer hover:text-accent ${activeCategory === type ? 'text-accent' : ''}`} key={`${category.name}-${type}`}>{type}</li>
                         ))}
-                    </ul>
-                    <h1 className='font-krona font-bold mt-4 mb-2'>Notes:</h1>
-                    <ul className='space-y-2 ml-4'>
-                        {category.notes.map(note => (
-                            <li className='cursor-pointer hover:text-accent' key={`${category.name}-${note}`}>{note}</li>
-                        ))}
-                    </ul>
+                    </ul> 
                     <h2 className='font-krona font-bold mt-4 mb-2'>Parfume types:</h2>
                     <ul className='space-y-2 ml-4'>
                         {category.fragranceType.map(fragranceType => (
