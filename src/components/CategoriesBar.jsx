@@ -1,44 +1,64 @@
-import React from 'react'
-import { useState } from 'react'
-import { CATEGORIES } from '../constants/categories.js'
-const CategoriesBar = ({ setFilter }) => {
+import React, { useState } from 'react';
+import { CATEGORIES } from '../constants/categories.js';
 
-    const [activeCategory, setActiveCategory] = useState(null);
+const CategoriesBar = ({ onSelect }) => {
+    const [activeCategory, setActiveCategory] = useState({ gender: null, type: null, fragranceType: null });
 
-    const handleFilter = (type, value) => {
-        setFilter(type, value);
-        if (type === 'gender' || type === 'type' || type === 'fragranceType') {
-            setActiveCategory(value);
-        }
+    const setCategory = (categoryType) => (e) => {
+        const value = e.target.innerText;
 
-    }
+        onSelect({ categoryType, value });
+        setActiveCategory((prev) => ({
+            ...prev,
+            [categoryType]: value,
+        }));
+    };
 
     return (
-        <div className=''>
+        <div>
             {CATEGORIES.map((category, idx) => (
-                <div key={idx} className="">
+                <div key={idx}>
                     <h1 className='font-krona font-bold mt-4 mb-2'>Gender:</h1>
                     <ul className='mt-4 mb-2 space-y-2 ml-4'>
                         {category.gender.map(gender => (
-                            <li onClick={() => handleFilter('gender', gender)} className={`cursor-pointer hover:text-accent ${activeCategory === gender ? 'text-accent' : ''}`} key={`${category.name}-${gender}`}>{gender}</li>
+                            <li
+                                onClick={setCategory('gender')}
+                                className={`cursor-pointer hover:text-accent ${activeCategory.gender === gender ? 'text-accent' : ''}`}
+                                key={`${category.name}-${gender}`}
+                            >
+                                {gender}
+                            </li>
                         ))}
                     </ul>
                     <h1 className='font-krona font-bold mt-4 mb-2'>Types:</h1>
                     <ul className='mt-4 mb-2 space-y-2 ml-4'>
                         {category.type.map(type => (
-                            <li onClick={() => handleFilter('type', type)} className={`cursor-pointer hover:text-accent ${activeCategory === type ? 'text-accent' : ''}`} key={`${category.name}-${type}`}>{type}</li>
+                            <li
+                                onClick={setCategory('type')}
+                                className={`cursor-pointer hover:text-accent ${activeCategory.type === type ? 'text-accent' : ''}`}
+                                key={`${category.name}-${type}`}
+                            >
+                                {type}
+                            </li>
                         ))}
-                    </ul> 
+                    </ul>
                     <h2 className='font-krona font-bold mt-4 mb-2'>Parfume types:</h2>
                     <ul className='space-y-2 ml-4'>
                         {category.fragranceType.map(fragranceType => (
-                            <li onClick={() => handleFilter('fragranceType', fragranceType)} className={`cursor-pointer hover:text-accent ${activeCategory === fragranceType ? 'text-accent' : ''}`} key={`${category.name}-${fragranceType}`}>{fragranceType}</li>
+                            <li
+                                onClick={setCategory('fragranceType')}
+                                className={`cursor-pointer hover:text-accent ${activeCategory.fragranceType === fragranceType ? 'text-accent' : ''}`}
+                                key={`${category.name}-${fragranceType}`}
+                            >
+                                {fragranceType}
+                            </li>
                         ))}
                     </ul>
                 </div>
             ))}
         </div>
-    )
-}
+    );
+};
 
-export default CategoriesBar
+
+export default CategoriesBar;

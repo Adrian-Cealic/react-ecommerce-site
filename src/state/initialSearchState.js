@@ -3,7 +3,6 @@ const initialSearchState = {
     filteredProducts: [],
     filters: {
         brand: null,
-        sort: null,
         type: null,
         gender: null,
         fragranceType: null,

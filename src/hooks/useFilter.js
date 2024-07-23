@@ -3,17 +3,22 @@ import { useEffect } from 'react';
 import { useSearchState } from '../state/search-context';
 import { setProducts } from '../state/actionCreators';
 
+const BASE_URL = 'https://my-fragrance-api-v2.onrender.com/products';
+
 const useFilter = () => {
     const [state, dispatch] = useSearchState();
 
-    const BASE_URL = 'https://my-fragrance-api-v2.onrender.com/products';
-
-    const getProducts = (type, value) => {
+    const getProducts = () => {
         dispatch(setProducts([]));
 
-        const url = value === 'All' ? BASE_URL : `${BASE_URL}?${type}=${value}`;
+        const params = {
+            brandName: state.filters.brandName,
+            gender: state.filters.gender,
+            type: state.filters.type,
+            fragranceType: state.filters.fragranceType,
+        }
 
-        axios.get(url)
+        axios.get(BASE_URL, { params })
             .then(({ data }) => {
                 dispatch(setProducts(data));
             })
@@ -22,15 +27,11 @@ const useFilter = () => {
             });
     };
 
-    const setFilter = (type, value) => {
-        getProducts(type, value);
-    };
 
     useEffect(() => {
-        getProducts('type', 'All');
-    }, []);
+        getProducts()
+    }, [state.filters]);
 
-    return { setFilter };
 };
 
 export default useFilter;

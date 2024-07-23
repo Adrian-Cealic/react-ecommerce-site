@@ -1,3 +1,4 @@
+// search-context.js
 import React, { createContext, useContext, useReducer } from 'react';
 import initialSearchState from './initialSearchState';
 import { searchReducer } from './search-reducer';
@@ -15,9 +16,11 @@ export const SearchProvider = ({ children }) => {
 
 const useSearchState = () => {
     const context = useContext(searchStateContext);
-    console.log("context : " + { context });
-
+    if (!context) {
+        throw new Error('useSearchState must be used within a SearchProvider');
+    }
     return context;
-}
+};
+
 export { useSearchState };
 export default searchStateContext;
