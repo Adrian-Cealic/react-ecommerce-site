@@ -1,4 +1,3 @@
-// search-context.js
 import React, { createContext, useContext, useReducer } from 'react';
 import initialSearchState from './initialSearchState';
 import { searchReducer } from './search-reducer';

@@ -16,7 +16,7 @@ const Sidebar = () => {
 
   const handleOnChange = e => {
     const { name, value } = e.target;
-    dispatch(setFilter(name, value));
+    dispatch(setFilter(name, value === 'All' ? null : value));
   };
 
   const handleOnSelect = ({ categoryType, value }) => {
@@ -24,9 +24,10 @@ const Sidebar = () => {
   };
 
 
+
   return (
     <div className='pl-8'>
-      <PriceRange />
+      <PriceRange onChange={handleOnChange} />
       <DropDown onChange={handleOnChange} uniqueTypes={uniqueTypes} />
       <div className="bg-gray-200 mb-4 text-sm px-4 py-2">
         <CategoriesBar onSelect={handleOnSelect} />
