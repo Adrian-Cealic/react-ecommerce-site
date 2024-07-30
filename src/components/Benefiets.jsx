@@ -1,4 +1,4 @@
-import React from 'react'
+// components
 import BenefietItem from './BenefietItem'
 const Benefiets = () => {
     const benefiets = [

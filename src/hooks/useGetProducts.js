@@ -1,4 +1,6 @@
+// axios
 import axios from 'axios';
+// hooks
 import { useEffect, useState } from 'react';
 
 const useGetProducts = () => {

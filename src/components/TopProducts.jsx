@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+// componetns
 import ButtonLink from './ButtonLink';
 import SectionTitle from './SectionTitle';
-import useGetProducts from '../hooks/useGetProducts';
 import Product from './Product';
+import Loader from './Loader';
+// hooks
+import useGetProducts from '../hooks/useGetProducts';
 
 // react-carousel
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import Loader from './Loader';
 
 const TopProducts = () => {
     const responsive = {
@@ -53,7 +54,7 @@ const TopProducts = () => {
                     ))}
                 </Carousel>
             ) : (
-                <Loader size={15}/>
+                <Loader size={15} />
             )}
         </div>
     );

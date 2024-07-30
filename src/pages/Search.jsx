@@ -1,5 +1,6 @@
-import React from 'react';
+// components
 import Search from '../components/Search';
+// useReducer
 import { SearchProvider } from '../state/search-context';
 
 const SearchPage = () => {

@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+// hooks
+import { useState, useEffect } from 'react';
+// constants
 import { CATEGORIES } from '../constants/categories.js';
 
 const CategoriesBar = ({ onSelect, onRemove, resetFilters, setResetFilters }) => {

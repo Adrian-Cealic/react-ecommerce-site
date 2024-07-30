@@ -1,6 +1,6 @@
-import React from 'react'
+// components
 import Product from './Product'
-
+// hooks
 import { useSearchState } from '../state/search-context';
 
 const SearchProducts = () => {

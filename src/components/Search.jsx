@@ -1,8 +1,10 @@
-import React from 'react'
+// components
 import Sidebar from './Sidebar';
-import useFilter from '../hooks/useFilter';
 import SearchProducts from './SearchProducts';
 import Loader from './Loader';
+// hooks
+import useFilter from '../hooks/useFilter';
+
 const Search = () => {
     const { isLoading } = useFilter();
     useFilter();

@@ -1,4 +1,4 @@
-import React from 'react'
+// components
 import NavLinks from './NavLinks'
 import BrandLink from './BrandLink'
 

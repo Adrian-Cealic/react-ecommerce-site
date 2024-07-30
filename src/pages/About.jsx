@@ -1,6 +1,8 @@
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
+// components
 import BrandLink from '../components/BrandLink'
 import Services from '../components/Services'
+
 const About = () => {
   return (
     <Fragment>

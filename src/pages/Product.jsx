@@ -1,7 +1,10 @@
-import React, { useEffect, useState, useLayoutEffect } from 'react';
+// react
+import { useEffect, useState, useLayoutEffect } from 'react';
+// react-router-doom
 import { Link, useParams } from 'react-router-dom';
-import useGetProducts from '../hooks/useGetProducts';
 import { useLocation } from 'react-router-dom'
+// hooks
+import useGetProducts from '../hooks/useGetProducts';
 
 // react-carousel
 import Carousel from 'react-multi-carousel';
@@ -96,7 +99,7 @@ const Product = () => {
 
                 </>
             ) : (
-                <Loader size={20}/>
+                <Loader size={20} />
             )}
 
             <SectionTitle text={"For you:"} />

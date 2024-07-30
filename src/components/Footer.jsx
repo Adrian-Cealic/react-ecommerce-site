@@ -1,4 +1,6 @@
+// react-router-doom
 import { Link } from 'react-router-dom'
+// components
 import BrandLink from './BrandLink'
 
 const Footer = () => {

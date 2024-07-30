@@ -1,5 +1,3 @@
-import React from 'react'
-
 const CartButton = ({ content }) => {
     return (
         <div className="">

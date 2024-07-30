@@ -1,13 +1,17 @@
-import React, { Fragment, useState } from 'react';
-import PriceRange from './PriceRange';
-import CategoriesBar from './CategoriesBar';
+// hooks
+import { Fragment, useState } from 'react';
+// use reducer
 import useGetProducts from '../hooks/useGetProducts';
-import DropDown from './DropDown';
 import { useSearchState } from '../state/search-context';
 import { setFilter } from '../state/actionCreators';
+// components
+import PriceRange from './PriceRange';
+import CategoriesBar from './CategoriesBar';
+import DropDown from './DropDown';
+import SearchFilterResponsive from './SearchFilterResponsive';
+// react-icons
 import { RxCross1 } from "react-icons/rx";
 import { FaFilter } from "react-icons/fa";
-import SearchFilterResponsive from './SearchFilterResponsive';
 
 const Sidebar = () => {
   const [, dispatch] = useSearchState();

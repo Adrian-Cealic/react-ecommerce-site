@@ -1,4 +1,6 @@
+// axios
 import axios from 'axios';
+// hooks
 import { useEffect, useState } from 'react';
 import { useSearchState } from '../state/search-context';
 import { setProducts } from '../state/actionCreators';

@@ -1,5 +1,6 @@
-import React from 'react'
+// components
 import ButtonLink from './ButtonLink'
+// img
 import secondaryBannerIMG from '../assets/secondarybannerimg.jpg'
 
 const SecondaryBanner = () => {

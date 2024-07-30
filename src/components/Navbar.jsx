@@ -1,10 +1,12 @@
+// compontents
 import BrandLink from './BrandLink'
-import { IoIosMenu } from "react-icons/io";
-
 import ResponsiveMenu from './ResponsiveMenu';
-import { RxCross1 } from "react-icons/rx";
-import { useState } from 'react';
 import NavLinks from './NavLinks';
+// react-icons
+import { IoIosMenu } from "react-icons/io";
+import { RxCross1 } from "react-icons/rx";
+// hooks
+import { useState } from 'react';
 
 const navbar = () => {
 

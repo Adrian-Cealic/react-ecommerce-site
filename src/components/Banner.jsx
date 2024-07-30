@@ -1,5 +1,6 @@
-import React from 'react'
+// img
 import BannerImg from '../assets/bannerimg.jpg'
+// components
 import ButtonLink from './ButtonLink'
 
 const Banner = () => {
