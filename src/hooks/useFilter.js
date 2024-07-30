@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchState } from '../state/search-context';
 import { setProducts } from '../state/actionCreators';
 
@@ -7,11 +7,23 @@ const BASE_URL = 'https://my-fragrance-api-v2.onrender.com/products';
 
 const useFilter = () => {
     const [state, dispatch] = useSearchState();
+    const [isLoading, setIsLoading] = useState(true);
 
     const getProducts = () => {
         dispatch(setProducts([]));
+        setIsLoading(true);
 
-        axios.get(BASE_URL)
+        const params = {
+            brandName: state.filters.brandName,
+            gender: state.filters.gender,
+            type: state.filters.type,
+            fragranceType: state.filters.fragranceType,
+            minPrice: state.filters.minPrice,
+            maxPrice: state.filters.maxPrice,
+        }
+
+
+        axios.get(BASE_URL, { params })
             .then(({ data }) => {
                 const filteredProducts = data.filter(product => {
                     const price = parseFloat(product.price.replace(/[$,]/g, ''));
@@ -31,16 +43,20 @@ const useFilter = () => {
                 });
 
                 dispatch(setProducts(finalProducts));
+                setIsLoading(false);
+
             })
             .catch(error => {
                 console.error('Error:', error);
             });
     };
 
+
     useEffect(() => {
-        getProducts();
+        getProducts()
     }, [state.filters]);
 
+    return { isLoading };
 };
 
 export default useFilter;

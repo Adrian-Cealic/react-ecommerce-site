@@ -1,6 +1,5 @@
 import React from 'react'
 import Product from './Product'
-import Loader from './Loader';
 
 import { useSearchState } from '../state/search-context';
 
@@ -9,9 +8,15 @@ const SearchProducts = () => {
     const [{ products }] = useSearchState();
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 ml-2">
-            {products.length === 0 ? <Loader classes={"h-[0vh] ml-[100px] sm:ml-[300px] lg:ml-[400px] xl:ml-[600px] top-96"} /> :
-                products.map(product => (
+        products.length === 0 ? (
+            <div className='text-center flex-wrap mt-8'>
+                <h4 className='font-krona'>Sorry, no products</h4>
+                <p>Please change your filters</p>
+            </div>
+        ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 ml-2">
+
+                {products.map(product => (
                     <Product
                         key={product.productId}
                         brandName={product.brandName}
@@ -23,7 +28,10 @@ const SearchProducts = () => {
                         quickLookDescription={product.quickLookDescription}
                     />
                 ))}
-        </div>
+
+            </div>
+        )
+
     )
 }
 
