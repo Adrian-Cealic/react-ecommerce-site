@@ -55,7 +55,7 @@ const Sidebar = () => {
         <FaFilter className='text-2xl cursor-pointer transition-all duration-200 ease-in transform hover:scale-110' onClick={toggleMenu} />
       </div>
       <div className='pl-8 hidden md:block'>
-        <PriceRange onChange={handleOnChange} />
+        <PriceRange onChange={handleOnChange} resetFilters={resetFilters} />
         <button onClick={clearAllFilters} className='bg-gray-200 p-2 my-2 font-krona rounded-md'>Clear all filters</button>
         <DropDown onChange={handleOnChange} uniqueTypes={uniqueTypes} />
         <div className="bg-gray-200 mb-4 text-sm px-4 py-2">
